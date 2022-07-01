@@ -10,13 +10,15 @@ import {
   Query,
 } from '@nestjs/common';
 import { CategoriasService } from './categorias.service';
+import { CreateCategoriaDto } from './dto/create-categoria.dto';
+import { UpdateCategoriaDto } from './dto/update-categoria.dto';
 
 @Controller('categorias')
 export class CategoriasController {
   constructor(private readonly categoriasService: CategoriasService) {}
 
   @Post()
-  create(@Body() body: Record<string, string | number | undefined>) {
+  create(@Body() body: CreateCategoriaDto) {
     return this.categoriasService.create(body);
   }
 
@@ -32,10 +34,7 @@ export class CategoriasController {
 
   @HttpCode(204)
   @Patch(':id')
-  update(
-    @Param('id') idCategoria: string,
-    @Body() body: Record<string, string>,
-  ) {
+  update(@Param('id') idCategoria: string, @Body() body: UpdateCategoriaDto) {
     return this.categoriasService.update(idCategoria, body);
   }
 
