@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { mySqlProvider } from './database.provider';
 import { ConfigModule } from '@nestjs/config';
+import { postgresSqlProvider } from './database.provider';
 
 @Module({
   imports: [
@@ -9,7 +9,7 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
   ],
-  providers: [...mySqlProvider],
-  exports: [...mySqlProvider],
+  providers: [...postgresSqlProvider],
+  exports: [...postgresSqlProvider],
 })
 export class ConfigAppModule {}
