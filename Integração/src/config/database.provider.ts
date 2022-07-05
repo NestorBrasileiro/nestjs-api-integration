@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
+import { Categoria } from 'src/categorias/model/categoria.entity';
 
 const postgresSqlPort: number =
   Number.parseInt(process.env.POSTGRES_PORT) || 5432;
@@ -14,8 +15,11 @@ export const postgresSqlProvider = [
         username: process.env.POSTGRES_USER,
         password: process.env.POSTGRES_PASSWORD,
         database: process.env.POSTGRES_DATABASE,
+        define: {
+          timestamps: true,
+        },
       });
-      sequelize.addModels([]);
+      sequelize.addModels([Categoria]);
       await sequelize.sync();
       return sequelize;
     },
