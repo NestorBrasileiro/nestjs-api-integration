@@ -13,7 +13,7 @@ $ echo $(cd /API && npm install)
 $ echo $(cd /Integracao && npm install)
 ```
 
-## Running the app
+## Rodando a aplicação
 Para melhor visualização, recomendo que use duas abas do terminal com cada uma na sua respectiva pasta para que fique melhor de ver os logs do NestJs.
 
 ```bash
