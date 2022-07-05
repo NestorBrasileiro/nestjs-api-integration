@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { CategoriasService } from './categorias.service';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
-import { UpdateCategoriaDto } from './dto/update-categoria.dto';
+import { Categoria } from './model/categoria.entity';
 
 @Controller('categorias')
 export class CategoriasController {
@@ -28,13 +28,13 @@ export class CategoriasController {
   }
 
   @Get(':id')
-  findOne(@Param(':id') idCategoria: string) {
+  findOne(@Param('id') idCategoria: any) {
     return this.categoriasService.findOne(idCategoria);
   }
 
   @HttpCode(204)
   @Patch(':id')
-  update(@Param('id') idCategoria: string, @Body() body: UpdateCategoriaDto) {
+  update(@Param('id') idCategoria: string, @Body() body: Categoria) {
     return this.categoriasService.update(idCategoria, body);
   }
 

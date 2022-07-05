@@ -1,7 +1,8 @@
+import { Transform } from 'class-transformer';
 import { IsInt, IsNumber, IsString, Length, Max, Min } from 'class-validator';
 
 export class CreateCategoriaDto {
-  @IsNumber()
+  @IsString()
   codigo: string;
 
   @IsString()
