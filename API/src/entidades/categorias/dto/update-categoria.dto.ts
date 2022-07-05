@@ -1,3 +1,12 @@
 import { CreateCategoriaDto } from './create-categoria.dto';
+import { IsOptional } from 'class-validator';
+export class UpdateCategoriaDto extends CreateCategoriaDto {
+  @IsOptional()
+  titulo: string;
 
-export class UpdateCategoriaDto extends CreateCategoriaDto {}
+  @IsOptional()
+  codigo: string;
+
+  @IsOptional()
+  status: number;
+}
