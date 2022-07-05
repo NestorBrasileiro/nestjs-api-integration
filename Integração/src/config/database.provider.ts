@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Categoria } from 'src/categorias/model/categoria.entity';
+import { Estoque } from 'src/estoques/entities/estoque.entity';
 import { Produto } from 'src/produtos/entities/produto.entity';
 
 const postgresSqlPort: number =
@@ -20,7 +21,7 @@ export const postgresSqlProvider = [
           timestamps: true,
         },
       });
-      sequelize.addModels([Categoria, Produto]);
+      sequelize.addModels([Categoria, Produto, Estoque]);
       await sequelize.sync();
       return sequelize;
     },
