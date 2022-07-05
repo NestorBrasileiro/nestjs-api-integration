@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Categoria } from 'src/entidades/categorias/model/categoria.entity';
+import { Estoque } from 'src/entidades/estoques/entities/estoque.entity';
 import { Produto } from 'src/entidades/produtos/entities/produto.entity';
 
 const mySqlPort: number = Number.parseInt(process.env.MYSQL_PORT) || 3306;
@@ -19,7 +20,7 @@ export const mySqlProvider = [
           timestamps: true,
         },
       });
-      sequelize.addModels([Categoria, Produto]);
+      sequelize.addModels([Categoria, Produto, Estoque]);
 
       await sequelize.sync();
       return sequelize;
