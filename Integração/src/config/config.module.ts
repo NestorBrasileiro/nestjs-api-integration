@@ -10,11 +10,8 @@ import { HttpConfigService } from './http-config.service';
       envFilePath: '.env',
       isGlobal: true,
     }),
-    HttpModule.registerAsync({
-      useClass: HttpConfigService,
-    }),
   ],
   providers: [...postgresSqlProvider, HttpConfigService],
-  exports: [...postgresSqlProvider],
+  exports: [...postgresSqlProvider, HttpConfigService],
 })
 export class ConfigAppModule {}
