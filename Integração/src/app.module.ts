@@ -4,9 +4,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigAppModule } from './config/config.module';
 import { CategoriasModule } from './categorias/categorias.module';
+import { ProdutosModule } from './produtos/produtos.module';
 
 @Module({
-  imports: [ScheduleModule.forRoot(), ConfigAppModule, CategoriasModule],
+  imports: [ScheduleModule.forRoot(), ConfigAppModule, CategoriasModule, ProdutosModule],
   controllers: [AppController],
   providers: [AppService],
 })
