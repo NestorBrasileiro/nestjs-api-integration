@@ -22,7 +22,7 @@ export class ProdutosService {
       this.logger.debug(`Quantidade de produtos atualmente ${data.length} `);
 
       await data.forEach(async (produto: Produto) => {
-        return await this.estoqueService.getEstoques(produto.id);
+        return await this.estoqueService.getEstoque(produto.id);
       });
 
       return await this.produtoModel.bulkCreate<Produto>(data, {

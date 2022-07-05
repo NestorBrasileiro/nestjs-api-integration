@@ -12,7 +12,7 @@ export class EstoquesService {
 
   private logger = new Logger('Integracao - Estoque');
 
-  async getEstoques(idProduto: string) {
+  async getEstoque(idProduto: string) {
     try {
       const { data } = await this.httpService.axiosRef.get(
         `/produtos/${idProduto}/estoque`,
