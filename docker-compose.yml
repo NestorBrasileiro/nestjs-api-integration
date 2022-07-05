@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  MySql:
+    image: mysql:5.7
+    container_name: MySql-Estoque
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'estoque'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin'
+      MYSQL_ROOT_PASSWORD: 'firefox2'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - $HOME/database/mysql
+
+  PostgresSql:
+    image: postgres:14.4-alpine
+    container_name: Postgres-Estoque
+    restart: always
+    environment:
+      POSTGRES_DB: estoque_integracao
+      POSTGRES_USER: 'admin'
+      POSTGRES_PASSWORD: 'admin'
+    ports:
+      - '5432:5432'
+    volumes:
+      - $HOME/database/postgres
